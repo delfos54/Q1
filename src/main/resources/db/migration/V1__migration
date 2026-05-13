@@ -1,0 +1,16 @@
+create table productos (
+    id int auto_increment primary key,
+    nombre varchar(100) not null,
+    descripcion varchar(255) not null,
+    precio decimal(10, 2) not null,
+    stock int not null,
+    categoria varchar(50) not null,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+);
+insert into productos (nombre, descripcion, precio, stock, categoria) values
+('Café Espresso', 'Café molido para espresso', 9.99, 100, 'Bebidas'),
+('Café Molido', 'Café molido para filtro', 7.99, 150, 'Bebidas'),
+('Café en Grano', 'Café en grano para moler', 12.99, 80, 'Bebidas'),
+('Taza de Café', 'Taza de cerámica para café', 4.99, 200, 'Accesorios'),
+('Filtro de Café', 'Filtro de papel para café', 2.99, 300, 'Accesorios');
