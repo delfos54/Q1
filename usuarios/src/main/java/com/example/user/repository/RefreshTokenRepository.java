@@ -1,5 +1,13 @@
 package com.example.user.repository;
 
-public class RefreshTokenRepository {
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.user.model.RefreshToken;
+
+public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Long> {
+    Optional<RefreshToken> findByToken(String token);
+
 
 }

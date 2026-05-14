@@ -1,5 +1,17 @@
 package com.example.user.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+
+@Data
 public class RefreshRequest {
+
+    @NotBlank(message = "Username es obligatorio")
+    private String username;
+
+    @NotBlank(message = "Password es obligatorio")
+    private String password;
+
+
 
 }
