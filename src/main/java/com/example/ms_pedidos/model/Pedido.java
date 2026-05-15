@@ -16,7 +16,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Long usuarioId;
+    private Integer usuarioId;
 
     private Double total;
 

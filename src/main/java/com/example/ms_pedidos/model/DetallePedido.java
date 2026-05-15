@@ -16,9 +16,9 @@ public class DetallePedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Long pedidoId;
+    private Integer pedidoId;
 
-    private Long productoId;
+    private Integer productoId;
 
     private Integer cantidad;
 

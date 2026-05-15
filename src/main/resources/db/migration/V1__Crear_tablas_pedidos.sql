@@ -1,14 +1,14 @@
 CREATE TABLE IF NOT EXISTS pedidos (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    usuario_id BIGINT NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INT NOT NULL,
     total DOUBLE NOT NULL,
     estado VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS detalle_pedido (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    pedido_id BIGINT NOT NULL,
-    producto_id BIGINT NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pedido_id INT NOT NULL,
+    producto_id INT NOT NULL,
     cantidad INT NOT NULL,
     precio DOUBLE NOT NULL,
 

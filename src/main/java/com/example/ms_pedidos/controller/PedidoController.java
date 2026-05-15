@@ -22,7 +22,7 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    // todos los pedidos
+    // LISTAR TODOS LOS PEDIDOS
 
     @GetMapping
     public ResponseEntity<ApiResponse<List<Pedido>>> listarPedidos() {
@@ -38,10 +38,10 @@ public class PedidoController {
         );
     }
 
-    // pedidos por id
+    // OBTENER PEDIDO POR ID
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Pedido>> obtenerPedido(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<Pedido>> obtenerPedido(@PathVariable Integer id) {
 
         Pedido pedido = pedidoService.obtenerPedido(id);
 
@@ -54,10 +54,12 @@ public class PedidoController {
         );
     }
 
-    // crear un pedido
+    // CREAR PEDIDO
 
     @PostMapping
-    public ResponseEntity<ApiResponse<Pedido>> crearPedido(@Valid @RequestBody PedidoRequestDTO dto) {
+    public ResponseEntity<ApiResponse<Pedido>> crearPedido(
+            @Valid @RequestBody PedidoRequestDTO dto
+    ) {
 
         Pedido pedidoCreado = pedidoService.crearPedido(dto);
 
@@ -70,11 +72,11 @@ public class PedidoController {
         );
     }
 
-    // actualizar el estado del pedido
+    // ACTUALIZAR ESTADO
 
     @PutMapping("/{id}/estado")
     public ResponseEntity<ApiResponse<Pedido>> actualizarEstado(
-            @PathVariable Long id,
+            @PathVariable Integer id,
             @RequestParam String estado
     ) {
 
@@ -89,10 +91,12 @@ public class PedidoController {
         );
     }
 
-    // borrar
-    
+    // ELIMINAR PEDIDO
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<ApiResponse<Object>> eliminarPedido(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<Object>> eliminarPedido(
+            @PathVariable Integer id
+    ) {
 
         pedidoService.eliminarPedido(id);
 

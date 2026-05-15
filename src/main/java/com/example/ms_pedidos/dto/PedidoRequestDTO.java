@@ -11,7 +11,7 @@ import java.util.List;
 public class PedidoRequestDTO {
 
     @NotNull(message = "El usuario es obligatorio")
-    private Long usuarioId;
+    private Integer usuarioId;
 
     @NotEmpty(message = "El pedido no puede estar vacio")
     private List<DetalleDTO> detalles;
@@ -20,7 +20,7 @@ public class PedidoRequestDTO {
     public static class DetalleDTO {
 
         @NotNull
-        private Long productoId;
+        private Integer productoId;
 
         @Min(value = 1, message = "La cantidad debe ser mayor a 0")
         private Integer cantidad;
