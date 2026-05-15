@@ -4,14 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class RefreshRequest {
+public class UsuarioResponse {
+
 
     @NotBlank(message = "Username es obligatorio")
     private String username;
 
     @NotBlank(message = "Password es obligatorio")
     private String password;
-
-
-
 }
