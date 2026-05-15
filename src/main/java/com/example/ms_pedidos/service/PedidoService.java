@@ -1,7 +1,7 @@
 package com.example.ms_pedidos.service;
 
 import com.example.ms_pedidos.dto.PedidoRequestDTO;
-import com.example.ms_pedidos.exception.GlobalExceptionHandler;
+import com.example.ms_pedidos.exception.ResourceNotFoundException;
 import com.example.ms_pedidos.model.DetallePedido;
 import com.example.ms_pedidos.model.Pedido;
 import com.example.ms_pedidos.repository.DetallePedidoRepository;
@@ -20,7 +20,6 @@ public class PedidoService {
     private final PedidoRepository pedidoRepository;
     private final DetallePedidoRepository detallePedidoRepository;
 
-    // LISTAR PEDIDOS
     public List<Pedido> listarPedidos() {
 
         log.info("Listando pedidos");
@@ -28,7 +27,6 @@ public class PedidoService {
         return pedidoRepository.findAll();
     }
 
-    // OBTENER PEDIDO POR ID
     public Pedido obtenerPedido(Long id) {
 
         log.info("Buscando pedido con id {}", id);
@@ -38,7 +36,6 @@ public class PedidoService {
                         new ResourceNotFoundException("Pedido no encontrado"));
     }
 
-    // CREAR PEDIDO
     public Pedido crearPedido(PedidoRequestDTO dto) {
 
         log.info("Creando pedido");
@@ -50,7 +47,6 @@ public class PedidoService {
 
         double total = 0;
 
-        // CALCULAR TOTAL
         for (PedidoRequestDTO.DetalleDTO detalleDTO : dto.getDetalles()) {
 
             total += detalleDTO.getCantidad() * detalleDTO.getPrecio();
@@ -58,10 +54,8 @@ public class PedidoService {
 
         pedido.setTotal(total);
 
-        // GUARDAR PEDIDO
         Pedido pedidoGuardado = pedidoRepository.save(pedido);
 
-        // GUARDAR DETALLES
         for (PedidoRequestDTO.DetalleDTO detalleDTO : dto.getDetalles()) {
 
             DetallePedido detalle = new DetallePedido();
@@ -79,7 +73,6 @@ public class PedidoService {
         return pedidoGuardado;
     }
 
-    // ACTUALIZAR ESTADO
     public Pedido actualizarEstado(Long id, String estado) {
 
         Pedido pedido = obtenerPedido(id);
@@ -100,3 +93,4 @@ public class PedidoService {
 
         log.info("Pedido eliminado con id {}", id);
     }
+}
