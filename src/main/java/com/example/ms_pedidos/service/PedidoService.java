@@ -27,7 +27,7 @@ public class PedidoService {
         return pedidoRepository.findAll();
     }
 
-    public Pedido obtenerPedido(Long id) {
+    public Pedido obtenerPedido(Integer id) {
 
         log.info("Buscando pedido con id {}", id);
 
@@ -73,7 +73,7 @@ public class PedidoService {
         return pedidoGuardado;
     }
 
-    public Pedido actualizarEstado(Long id, String estado) {
+    public Pedido actualizarEstado(Integer id, String estado) {
 
         Pedido pedido = obtenerPedido(id);
 
@@ -84,7 +84,7 @@ public class PedidoService {
         return pedidoRepository.save(pedido);
     }
 
-    public void eliminarPedido(Long id) {
+    public void eliminarPedido(Integer id) {
 
         Pedido pedido = obtenerPedido(id);
 
