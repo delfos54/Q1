@@ -1,5 +1,6 @@
 package com.example.coffee.connect.ProductoController;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -93,6 +94,17 @@ public class ProductosController {
                         .mensaje("Producto eliminado")
                         .build()
         );
+    }
+
+    @GetMapping("/{id}/precio")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    public BigDecimal obtenerPrecioRápido(@PathVariable Integer id) {
+        // Reutilizamos tu servicio existente para buscar el producto
+        productos p = service.obtener(id);
+        
+        // Retornamos únicamente el valor del precio
+        // (Asumo que tu modelo se llama getPrecio(), si se llama distinto, ajústalo)
+        return p.getPrecio(); 
     }
 }
     
