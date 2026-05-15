@@ -1,5 +1,8 @@
 package com.example.ms_pedidos.repository;
 
-public interface PedidoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.ms_pedidos.model.Pedido;
+
+public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 
 }
