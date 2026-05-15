@@ -84,7 +84,6 @@ public class PedidoService {
         return pedidoRepository.save(pedido);
     }
 
-    // ELIMINAR PEDIDO
     public void eliminarPedido(Long id) {
 
         Pedido pedido = obtenerPedido(id);
